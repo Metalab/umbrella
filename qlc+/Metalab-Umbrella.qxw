@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Workspace>
+<Workspace xmlns="http://www.qlcplus.org/Workspace" CurrentWindow="FunctionManager">
+ <Creator>
+  <Name>Q Light Controller Plus</Name>
+  <Version>4.10.4</Version>
+  <Author>Florian Bittner</Author>
+ </Creator>
+ <Engine>
+  <InputOutputMap>
+   <Universe Name="Universe 1" ID="0" Passthrough="False">
+    <Input Plugin="ArtNet" Line="1" Profile="None"/>
+    <Output Plugin="ArtNet" Line="1">
+     <PluginParameters outputUni="1"/>
+    </Output>
+   </Universe>
+   <Universe Name="Universe 2" ID="1" Passthrough="False"/>
+   <Universe Name="Universe 3" ID="2" Passthrough="False"/>
+   <Universe Name="Universe 4" ID="3" Passthrough="False"/>
+  </InputOutputMap>
+  <Fixture>
+   <Manufacturer>Metalab</Manufacturer>
+   <Model>Umbrella</Model>
+   <Mode>RGBWW</Mode>
+   <ID>0</ID>
+   <Name>Umbrella</Name>
+   <Universe>0</Universe>
+   <Address>0</Address>
+   <Channels>5</Channels>
+  </Fixture>
+  <Function ID="1" Type="Scene" Name="rgbfade">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="0">0,0,1,0,2,0,3,0,4,0</FixtureVal>
+  </Function>
+  <Function ID="2" Type="Chaser" Name="rgbfade">
+   <Speed FadeIn="0" FadeOut="0" Duration="1500"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <SpeedModes FadeIn="PerStep" FadeOut="PerStep" Duration="Common"/>
+   <Sequence BoundScene="1"/>
+   <Step Number="0" FadeIn="500" Hold="0" FadeOut="0" Values="5">0,0,255</Step>
+   <Step Number="1" FadeIn="500" Hold="1500" FadeOut="0" Values="5">0,0,255,0,1,255</Step>
+   <Step Number="2" FadeIn="500" Hold="1500" FadeOut="0" Values="5">0,1,255</Step>
+   <Step Number="3" FadeIn="500" Hold="1500" FadeOut="0" Values="5">0,1,255,0,2,255</Step>
+   <Step Number="4" FadeIn="500" Hold="1500" FadeOut="0" Values="5">0,2,255</Step>
+   <Step Number="5" FadeIn="500" Hold="1500" FadeOut="0" Values="5">0,0,255,0,2,255</Step>
+  </Function>
+ </Engine>
+ <VirtualConsole>
+  <Frame Caption="">
+   <Appearance>
+    <FrameStyle>None</FrameStyle>
+    <ForegroundColor>Default</ForegroundColor>
+    <BackgroundColor>Default</BackgroundColor>
+    <BackgroundImage>None</BackgroundImage>
+    <Font>Default</Font>
+   </Appearance>
+  </Frame>
+  <Properties>
+   <Size Width="1920" Height="1080"/>
+   <GrandMaster ChannelMode="Intensity" ValueMode="Reduce" SliderMode="Normal"/>
+  </Properties>
+ </VirtualConsole>
+ <SimpleDesk>
+  <Engine/>
+ </SimpleDesk>
+</Workspace>
